@@ -4,7 +4,7 @@ node {
 	
 	//git fetch
 	stage('Preparation') {
-		git 'https://github.com/srinivasbv22/Guns-Project.git'
+		git 'https://github.com/Durga2Dash/Guns-Project.git'
 
 		mvnHome = tool 'Maven'
 	}
@@ -23,7 +23,7 @@ node {
 	
 	//Build Docker image
 	stage ('Docker image with version'){
-		sh "docker build -t srinivasbv22/tomcat:${BUILD_NUMBER} ."
+		sh "docker build -t durga2dash/tomcat:${BUILD_NUMBER} ."
 	}
 	
 	//remove old docker containers
@@ -33,7 +33,7 @@ node {
 	
 	//Deploy to tomcat container
 	stage ('Deploy stage'){
-		sh "docker run -d -p 8082:8080 -v /opt/tomcat/apache-tomcat-8.5.38/webapps:/usr/local/tomcat/webapps --name tomcat srinivasbv22/tomcat"
+		sh "docker run -d -p 8082:8080 -v /opt/tomcat/apache-tomcat-8.5.38/webapps:/usr/local/tomcat/webapps --name tomcat durga2dash/tomcat"
 	}
 	
 }
