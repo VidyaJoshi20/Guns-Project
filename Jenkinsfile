@@ -18,7 +18,6 @@ node {
 	
 	//Deployment on tomcat
 	stage ('Deploy to local tomcat vm'){
-		sh 'sudo su'
 		sh 'cp  /var/lib/jenkins/workspace/DevOps201/target/*.war /opt/tomcat/apache-tomcat-8.5.14/webapps/'
 	}
 	
