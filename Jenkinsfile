@@ -18,7 +18,7 @@ node {
 	
 	//Deployment on tomcat
 	stage ('Deploy to local tomcat vm'){
-		sh 'cp  /var/lib/jenkins/workspace/Guns-Project/target/*.war /opt/tomcat/apache-tomcat-8.5.38/webapps/'
+		sh 'cp  /var/lib/jenkins/workspace/DevOps201/target/*.war /opt/tomcat/apache-tomcat-8.5.38/webapps/'
 	}
 	
 	//Build Docker image
