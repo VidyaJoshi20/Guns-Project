@@ -18,7 +18,7 @@ node {
 	
 	//Deployment on tomcat
 	stage ('Deploy to local tomcat vm'){
-		sh 'cp  /var/lib/jenkins/workspace/DevOps201/target/*.war /opt/tomcat/apache-tomcat-8.5.38/webapps/'
+		sh 'cp  /var/lib/jenkins/workspace/DevOps201/target/*.war /opt/tomcat/apache-tomcat-8.5.14/webapps/'
 	}
 	
 	//Build Docker image
@@ -33,7 +33,7 @@ node {
 	
 	//Deploy to tomcat container
 	stage ('Deploy stage'){
-		sh "docker run -d -p 8082:8080 -v /opt/tomcat/apache-tomcat-8.5.38/webapps:/usr/local/tomcat/webapps --name tomcat durga2dash/tomcat"
+		sh "docker run -d -p 8082:8080 -v /opt/tomcat/apache-tomcat-8.5.14/webapps:/usr/local/tomcat/webapps --name tomcat durga2dash/tomcat"
 	}
 	
 }
