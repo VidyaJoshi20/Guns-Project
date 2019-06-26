@@ -17,24 +17,24 @@ node {
 	
 	
 	//Deployment on tomcat
-	stage ('Deploy to local tomcat vm'){
-		sh 'cp  /var/lib/jenkins/workspace/DevOps201/target/*.war /opt/tomcat/apache-tomcat-8.5.14/webapps/'
-	}
+	//stage ('Deploy to local tomcat vm'){
+	//	sh 'cp  /var/lib/jenkins/workspace/DevOps201/target/*.war /opt/tomcat/apache-tomcat-8.5.14/webapps/'
+	//}
 	
 	//Build Docker image
-	stage ('Docker image with version'){
-		sh "docker build -t durga2dash/tomcat:${BUILD_NUMBER} ."
-	}
+	//stage ('Docker image with version'){
+	//	sh "docker build -t durga2dash/tomcat:${BUILD_NUMBER} ."
+	//}
 	
 	//remove old docker containers
-	stage ('Tomcat container delete'){
-		sh "docker rm -f tomcat"
-	}
+	//stage ('Tomcat container delete'){
+	//	sh "docker rm -f tomcat"
+	//}
 	
 	//Deploy to tomcat container
-	stage ('Deploy stage'){
-		sh "docker run -d -p 8082:8080 -v /opt/tomcat/apache-tomcat-8.5.14/webapps:/usr/local/tomcat/webapps --name tomcat durga2dash/tomcat"
-	}
+	//stage ('Deploy stage'){
+	//	sh "docker run -d -p 8082:8080 -v /opt/tomcat/apache-tomcat-8.5.14/webapps:/usr/local/tomcat/webapps --name tomcat durga2dash/tomcat"
+	//}
 	
 }
 	
